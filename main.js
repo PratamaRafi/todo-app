@@ -10,7 +10,7 @@ addCardBtn.addEventListener("click", () => {
   noItem.style.display = "none";
 });
 
-// close Add card popup
+
 function closeAddCardPopup() {
   const popup = document.getElementById("popup-container");
   popup.style.display = "none";
@@ -25,18 +25,12 @@ function newAddCard() {
   };
   if (cardText) {
     cards.push(card);
-    renderCards(); // calling function
+    renderCards();
   } else {
     alert("Add Your Card Name !");
   }
   document.getElementById("card-name").value = "";
   closeAddCardPopup();
-
-  // const headinging = document.querySelector("#h1");
-  // headinging.style.display = "block";
-
-  // const backButton = document.querySelector("#back");
-  // backButton.style.display = "none";
 }
 
 function renderContent() {
@@ -51,8 +45,6 @@ function renderContent() {
     ul.innerHTML = child;
   }
 }
-
-//  <button class="done sub-btn"><svg xmlns="http://www.w3.org/2000/svg" class="dones" width="1.4em" height="1.4em" viewBox="0 0 24 24"><path fill="currentColor" d="m9.55 18l-5.7-5.7l1.425-1.425L9.55 15.15l9.175-9.175L20.15 7.4L9.55 18Z"></path></svg></button>
       
 
 function renderCards() {
@@ -69,7 +61,6 @@ function renderCards() {
       <button onclick="showAddContentToCardPopup(${cards[i].id})" class="add-item-content add-sub-item-btn"><svg xmlns="http://www.w3.org/2000/svg" class="adding" width="1.4em" height="1.4em" viewBox="0 0 24 24"><path fill="currentColor" d="M11 19v-6H5v-2h6V5h2v6h6v2h-6v6h-2Z"></path></svg></button>
       </div></div>`;
   }
-  // <button onclick="editCard(${cards[i].id})" class="edit-item-content edit-btn"><svg xmlns="http://www.w3.org/2000/svg" class="editing" width="1.4em" height="1.4em" viewBox="0 0 16 16"><path fill="currentColor" d="M16 4s0-1-1-2s-1.9-1-1.9-1L12 2.1V0H0v16h12V8l4-4zm-9.7 7.4l-.6-.6l.3-1.1l1.5 1.5l-1.2.2zm.9-1.9l-.6-.6l5.2-5.2c.2.1.4.3.6.5zm6.9-7l-.9 1c-.2-.2-.4-.3-.6-.5l.9-.9c.1.1.3.2.6.4zM11 15H1V1h10v2.1L5.1 9L4 13.1L8.1 12L11 9v6z"></path></svg></button>
       
   cardcontainer.innerHTML = child;  
   renderContent();
@@ -77,10 +68,8 @@ function renderCards() {
 }
 
 function deleteCard(id) {
-  // const cardcontainer = document.getElementById("cards-container");
   const cardId = `card_${id}`;
   const card = document.getElementById(cardId);
-  //remove child from parent node
   if (confirm("Are you sure you want to delete this card?")) {
     card.parentNode.removeChild(card);
     cards = cards.filter((item) => item.id != id);
